@@ -10,9 +10,10 @@ jobs:
       script: yarn test
     - stage: build
       script: yarn build
+    - stage : deploy
+      deploy:
+        provider: heroku
+        api_key: $HEROKU_KEY
+        app: $HEROKU_APP
 on:
   branch: master
-deploy:
-  provider: heroku
-  api_key: $HEROKU_KEY
-  app: $HEROKU_APP
