@@ -4,8 +4,11 @@ node_js:
 cache:
   directories:
     - node_modules
-script:
-  - yarn test
-  - yarn build
+jobs:
+  include:
+    - stage: test
+      script: yarn test
+    - stage: build
+      script: yarn build
 on:
   branch: master
